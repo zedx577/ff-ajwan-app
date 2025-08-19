@@ -1,20 +1,14 @@
-// ===== FF AJWAN - FINAL & REVIEWED CODE =====
-// This file contains the entire application code, reviewed and ready for build.
-
+// ===== FF AJWAN - FINAL CORRECTED CODE v2 =====
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 
-// ===================================================================
-// MAIN FUNCTION: APP'S STARTING POINT
-// ===================================================================
+// MAIN FUNCTION
 void main() {
   runApp(const MyApp());
 }
 
-// ===================================================================
-// ROOT WIDGET: THE MAIN APP STRUCTURE
-// ===================================================================
+// ROOT WIDGET
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -26,17 +20,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: Colors.black,
-        
         primaryColor: Colors.red,
         colorScheme: const ColorScheme.dark(
           primary: Colors.red,
           secondary: Colors.redAccent,
         ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.grey[900],
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black,
           elevation: 0,
-          iconTheme: const IconThemeData(color: Colors.white),
-          titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold,
+          iconTheme: IconThemeData(color: Colors.white),
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+        ),
         cardTheme: CardTheme(
           color: Colors.grey[900],
           margin: const EdgeInsets.symmetric(vertical: 8.0),
@@ -51,9 +45,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// SCREEN 1: SPLASH SCREEN
-// ===================================================================
+// SPLASH SCREEN
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -82,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          
+            Icon(Icons.local_fire_department, color: Colors.red, size: 100),
             SizedBox(height: 20),
             Text(
               'FF Ajwan',
@@ -95,9 +87,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 
-// ===================================================================
-// SCREEN 2: HOME SCREEN (THE MAIN MENU)
-// ===================================================================
+// HOME SCREEN
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -127,8 +117,6 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.black,
         title: const Text('FF Ajwan'),
         centerTitle: true,
       ),
@@ -173,9 +161,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 3: HEADSHOT & PRO GUIDE
-// ===================================================================
+// ALL OTHER PAGES AND HELPERS
 class HeadshotGuideScreen extends StatelessWidget {
   const HeadshotGuideScreen({super.key});
   @override
@@ -196,13 +182,13 @@ class HeadshotGuideScreen extends StatelessWidget {
             icon: Icons.gps_fixed,
           ),
           GuideSection(
-            title: '3. فن الرفعة (السحب): متى ترفع بسرعة ومتى بشويش؟',
-            content: 'هنا السر كله:\n\n• إذا الخصم قريب منك (مواجهة شوتقن): ارفع زر الضرب بقوة وبسرعة قصوى لفوق. حركة سريعة ومفاجئة.\n\n• إذا الخصم بعيد عنك (سلاح AR): ارفع زر الضرب بهداوة وبشكل تدريجي. رفعة ناعمة وطويلة.\n\n• إذا الخصم يركض يمين أو يسار: ارفع زر الضرب بشكل منحني، كأنك ترسم حرف J. اسحب إصبعك مع اتجاه حركته.',
+            title: '3. فن الرفعة (السحب)',
+            content: '• إذا الخصم قريب منك (مواجهة شوتقن): ارفع زر الضرب بقوة وبسرعة قصوى لفوق.\n\n• إذا الخصم بعيد عنك (سلاح AR): ارفع زر الضرب بهداوة وبشكل تدريجي.\n\n• إذا الخصم يركض يمين أو يسار: ارفع زر الضرب بشكل منحني، كأنك ترسم حرف J.',
             icon: Icons.touch_app,
           ),
           GuideSection(
             title: '4. حجم ومكان زر الضرب',
-            content: 'ما فيه حجم واحد صح للكل، بس القاعدة الذهبية هي: بين 40 و 60. هذا الحجم يعطيك مساحة كافية للسحب بدون ما يغطي الشاشة. حطه في مكان مريح لإصبع إبهامك، بحيث تكون حركة الرفع طبيعية وسهلة.',
+            content: 'القاعدة الذهبية هي: بين 40 و 60. هذا الحجم يعطيك مساحة كافية للسحب بدون ما يغطي الشاشة. حطه في مكان مريح لإصبع إبهامك.',
             icon: Icons.fullscreen,
           ),
         ],
@@ -211,9 +197,6 @@ class HeadshotGuideScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 4: CUSTOM SETTINGS GUIDE
-// ===================================================================
 class SettingsGuideScreen extends StatelessWidget {
   const SettingsGuideScreen({super.key});
   @override
@@ -223,7 +206,6 @@ class SettingsGuideScreen extends StatelessWidget {
       'Galaxy A05s': {'عام': '98', 'نقطة حمراء': '100', 'سكوب 2': '95', 'سكوب 4': '90', 'سكوب قناص': '70', 'DPI': '480', 'حجم زر الضرب': '60%'},
       'محاكي BlueStacks': {'عام': '80', 'نقطة حمراء': '85', 'سكوب 2': '88', 'سكوب 4': '88', 'سكوب قناص': '60', 'DPI': '800', 'حجم زر الضرب': '15%'},
     };
-
     return Scaffold(
       appBar: AppBar(title: const Text('إعداداتك الخاصة')),
       body: ListView.builder(
@@ -249,21 +231,17 @@ class SettingsGuideScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 5: ROOM CONQUEROR GUIDE
-// ===================================================================
 class RoomConquerorScreen extends StatelessWidget {
   const RoomConquerorScreen({super.key});
   @override
   Widget build(BuildContext context) {
     final List<Map<String, String>> guideSections = [
-      {'title': 'أساسيات لازم تعرفها (قوانين الشرف)', 'content': 'في رومات الحقد، فيه قوانين غير مكتوبة:\n\n• ممنوع القنابل (Grenades).\n• ممنوع قاذف القنابل (Launcher).\n• ممنوع استخدام شخصيات يعتبرونها "لعب نوب" مثل سكايلر أو وكونغ (اسأل قبل ما تبدأ).\n\nاكسر هذي القوانين ويعتبرونك خاسر حتى لو فزت.'},
-      {'title': 'كيف تختار سلاحك صح؟', 'content': 'الزبدة: سلاحين بس.\n\n1. سلاح للمسافة القريبة: شوتقن طلقتين (M1887) أو UMP.\n2. سلاح للمسافة المتوسطة/البعيدة: نسر الصحراء (Desert Eagle) أو النقار (Woodpecker).\n\nلا تشيل قناص أو AR إلا لو متفقين. هدفك سلاح ينهي المواجهة بسرعة.'},
-      {'title': 'فن الحركة: كيف تكون خفيف وصعب الصيد', 'content': '• لا تمشي بخط مستقيم أبد. تحرك يمين ويسار بشكل عشوائي.\n• استخدم حركة "النط ثم الطلق": نط، وأول ما رجلك تلمس الأرض، اطلق النار. هذا يخلي إيمك أدق.\n• بعد كل طلقة شوتقن، حط ثلجة فوراً. لا تنتظر تشوف إذا دمجته أو لا. اضرب، ثلج، تحرك. هذي تصير عادة.'},
-      {'title': 'حرب الثلج: كيف تبني صح وتكسر صح', 'content': '• ثلجة الهجوم: حطها قريبة من خصمك عشان تحشره وتاخذ عليه الأفضلية.\n• ثلجة الدفاع: حطها قدامك مباشرة وأنت جالس (crouch) عشان تغطيك بالكامل.\n• خدعة الثلجة الوهمية: حط ثلجة على يمينك، ولف من اليسار. خصمك بيركز على الثلجة وأنت تباغته.'},
-      {'title': 'الخدع النفسية (لعب العقول)', 'content': '• الإيم الوهمي: سو نفسك بتطلق عليه من بعيد بالديزرت عشان تخليه يحط ثلجة ويضيع موارده.\n• الاستفزاز بالحركة: سوي رقصة سريعة ورا الثلجة عشان تخليه يعصب ويطلع من مكانه بشكل غبي.\n• الصمت القاتل: إذا كنت متقدم عليه بالنتيجة، العب بهدوء وخليه هو اللي يغلط. الضغط عليه مو عليك.'},
+      {'title': 'أساسيات (قوانين الشرف)', 'content': '• ممنوع القنابل (Grenades).\n• ممنوع قاذف القنابل (Launcher).\n• ممنوع استخدام شخصيات يعتبرونها "لعب نوب" مثل سكايلر أو وكونغ.'},
+      {'title': 'اختيار السلاح', 'content': '1. سلاح للمسافة القريبة: شوتقن طلقتين (M1887) أو UMP.\n2. سلاح للمسافة المتوسطة/البعيدة: نسر الصحراء (Desert Eagle) أو النقار (Woodpecker).'},
+      {'title': 'فن الحركة', 'content': '• لا تمشي بخط مستقيم.\n• استخدم حركة "النط ثم الطلق".\n• بعد كل طلقة شوتقن، حط ثلجة فوراً.'},
+      {'title': 'حرب الثلج', 'content': '• ثلجة الهجوم: قريبة من خصمك.\n• ثلجة الدفاع: قدامك وأنت جالس.\n• خدعة الثلجة الوهمية: حط ثلجة يمين، ولف من اليسار.'},
+      {'title': 'الخدع النفسية', 'content': '• الإيم الوهمي.\n• الاستفزاز بالحركة.\n• الصمت القاتل.'},
     ];
-
     return Scaffold(
       appBar: AppBar(title: const Text('👑 قاهر الرومات')),
       body: ListView.builder(
@@ -290,17 +268,14 @@ class RoomConquerorScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 6: WEAPON ENCYCLOPEDIA
-// ===================================================================
 class WeaponEncyclopediaScreen extends StatelessWidget {
   const WeaponEncyclopediaScreen({super.key});
   @override
   Widget build(BuildContext context) {
     final weaponDetails = {
-      'M1887': {'usage': 'في الرومات، وفي الهجوم على البيوت. هو أقوى شوتقن باللعبة.', 'secret': 'الطلقة الأولى تكسر الدرع والثلج، والثانية تنهي الخصم. اضرب، حط ثلجة، تحرك.', 'drawback': 'طلقتين بس. إذا ضيعتها، أنت في ورطة.'},
-      'UMP': {'usage': 'ملك المسافات القريبة والمتوسطة. ينفع بكل الأوقات.', 'secret': 'يخترق الدرع بسهولة. دمجك بيكون عالي حتى لو خصمك لابس درع لفل 4.', 'drawback': 'أضعف قليلاً من الشوتقن في المواجهات وجه لوجه.'},
-      'Desert Eagle': {'usage': 'للمواجهات بطلقة واحدة من بعيد. سلاح الهيدشوت الأسطوري.', 'secret': 'لا تطلق بسرعة. خذ وقتك، ثبت الإيم، وارفع. طلقة واحدة في الراس كافية.', 'drawback': 'صعب التحكم فيه إذا كنت متوتراً.'},
+      'M1887': {'usage': 'في الرومات، وفي الهجوم على البيوت.', 'secret': 'الطلقة الأولى تكسر الدرع والثلج، والثانية تنهي الخصم.', 'drawback': 'طلقتين بس. إذا ضيعتها، أنت في ورطة.'},
+      'UMP': {'usage': 'ملك المسافات القريبة والمتوسطة.', 'secret': 'يخترق الدرع بسهولة.', 'drawback': 'أضعف قليلاً من الشوتقن في المواجهات وجه لوجه.'},
+      'Desert Eagle': {'usage': 'للمواجهات بطلقة واحدة من بعيد.', 'secret': 'لا تطلق بسرعة. خذ وقتك، ثبت الإيم، وارفع.', 'drawback': 'صعب التحكم فيه إذا كنت متوتراً.'},
     };
     return Scaffold(
       appBar: AppBar(title: const Text('🔫 موسوعة الأسلحة')),
@@ -326,17 +301,14 @@ class WeaponEncyclopediaScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 7: CHARACTER GUIDE
-// ===================================================================
 class CharacterGuideScreen extends StatelessWidget {
   const CharacterGuideScreen({super.key});
   @override
   Widget build(BuildContext context) {
     final characterDetails = {
-      'Alok': {'ability': 'قدرته "Drop the Beat" تسوي دائرة تزيد سرعة الحركة وتعالج 5 نقاط صحة كل ثانية. هي القدرة المتكاملة لأي مهاجم.', 'combo': 'كيلي (لزيادة السرعة).\nهياتو (لزيادة اختراق الدرع).\nموكو (لكشف مكان العدو بعد دمجه).'},
+      'Alok': {'ability': 'قدرته "Drop the Beat" تسوي دائرة تزيد سرعة الحركة وتعالج 5 نقاط صحة كل ثانية.', 'combo': 'كيلي (لزيادة السرعة).\nهياتو (لزيادة اختراق الدرع).\nموكو (لكشف مكان العدو).'},
       'Skyler': {'ability': 'قدرته "Riptide Rhythm" تطلق موجة تدمر ثلج الأعداء. وكل ما تحط ثلجة، يعالج دمك.', 'combo': 'نيري (لجعل ثلجتك أقوى).\nكيلي (للسرعة).\nهياتو (للمواجهات الحاسمة).'},
-      'Chrono': {'ability': 'قدرته "Time Turner" تنشئ درعاً لا يمكن اختراقه يحجب 800 ضرر. لا يمكنك إطلاق النار من الداخل.', 'combo': 'يستخدم للهروب أو لإنعاش صديق بأمان. لا يصلح للهجوم المباشر.'},
+      'Chrono': {'ability': 'قدرته "Time Turner" تنشئ درعاً لا يمكن اختراقه. لا يمكنك إطلاق النار من الداخل.', 'combo': 'يستخدم للهروب أو لإنعاش صديق بأمان.'},
     };
     return Scaffold(
       appBar: AppBar(title: const Text('🦸‍♂️ دليل الشخصيات')),
@@ -361,9 +333,6 @@ class CharacterGuideScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 8: NEWS & CODES
-// ===================================================================
 class NewsAndCodesScreen extends StatelessWidget {
   const NewsAndCodesScreen({super.key});
   @override
@@ -396,9 +365,6 @@ class NewsAndCodesScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 9: BATTLE ROYALE MAPS
-// ===================================================================
 class BattleRoyaleMapsScreen extends StatelessWidget {
   const BattleRoyaleMapsScreen({super.key});
   @override
@@ -423,9 +389,6 @@ class BattleRoyaleMapsScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 10: DIAMOND ECONOMY
-// ===================================================================
 class DiamondEconomyScreen extends StatelessWidget {
   const DiamondEconomyScreen({super.key});
   @override
@@ -435,27 +398,23 @@ class DiamondEconomyScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          _buildInfoCard(title: 'القاعدة الذهبية', content: 'لا تصرف على أي شي! قبل ما تشتري أي سكن، اسأل نفسك: "هل هذا السكن بيطور من لعبي؟". إذا الجواب لا، فكر مرة ثانية.', icon: Icons.shield, color: Colors.red),
-          _buildInfoCard(title: '1. الفاير باس (Elite Pass)', content: 'أفضل استثمار لجواهرك. يعطيك سكنات ورقصات وجوائز لا نهائية بقيمة تتجاوز 10,000 جوهرة، بسعر 500 جوهرة فقط.', icon: Icons.whatshot, color: Colors.purple),
-          _buildInfoCard(title: '2. عروض التخفيضات (المتجر الغامض)', content: 'انتظر العروض الكبيرة مثل "المتجر الغامض" أو "خصم هايبر". تقدر تاخذ سكنات أسطورية بخصم يصل إلى 90%.', icon: Icons.percent, color: Colors.teal),
-          _buildInfoCard(title: '3. الشخصيات والحيوانات الأليفة', content: 'استثمر في الشخصيات والحيوانات اللي قدراتها بتفيد أسلوب لعبك. هذي هي الأشياء الوحيدة اللي تطور من أدائك فعلياً.', icon: Icons.pets, color: Colors.amber),
+          _buildInfoCard(title: 'القاعدة الذهبية', content: 'لا تصرف على أي شي! قبل ما تشتري أي سكن، اسأل نفسك: "هل هذا السكن بيطور من لعبي؟".', icon: Icons.shield, color: Colors.red),
+          _buildInfoCard(title: '1. الفاير باس (Elite Pass)', content: 'أفضل استثمار لجواهرك. يعطيك جوائز لا نهائية بقيمة تتجاوز 10,000 جوهرة.', icon: Icons.whatshot, color: Colors.purple),
+          _buildInfoCard(title: '2. عروض التخفيضات', content: 'انتظر العروض الكبيرة مثل "المتجر الغامض". تقدر تاخذ سكنات أسطورية بخصم يصل إلى 90%.', icon: Icons.percent, color: Colors.teal),
         ],
       ),
     );
   }
 }
 
-// ===================================================================
-// PAGE 11: PET GUIDE
-// ===================================================================
 class PetGuideScreen extends StatelessWidget {
   const PetGuideScreen({super.key});
   @override
   Widget build(BuildContext context) {
     final petTips = {
       'السيد واجور': 'يصنع لك ثلجة كل 100 ثانية إذا كان معك أقل من ثلجتين. أفضل حيوان للرومات.',
-      'فالكو': 'يزيد سرعة الهبوط بالمظلة. أساسي في الباتل رويال، لا فائدة منه في الكلاش سكواد.',
-      'روكي': 'يقلل وقت تبريد (cooldown) القدرات الفعالة مثل ألوك وكرونو.',
+      'فالكو': 'يزيد سرعة الهبوط بالمظلة. أساسي في الباتل رويال.',
+      'روكي': 'يقلل وقت تبريد القدرات الفعالة مثل ألوك وكرونو.',
     };
     return Scaffold(
       appBar: AppBar(title: const Text('🐾 دليل الحيوانات')),
@@ -472,9 +431,6 @@ class PetGuideScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 12: ACHIEVEMENTS
-// ===================================================================
 class AchievementsScreen extends StatelessWidget {
   const AchievementsScreen({super.key});
   @override
@@ -499,9 +455,6 @@ class AchievementsScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// PAGE 13: CONTENT CREATOR GUIDE
-// ===================================================================
 class ContentCreatorScreen extends StatelessWidget {
   const ContentCreatorScreen({super.key});
   @override
@@ -511,27 +464,24 @@ class ContentCreatorScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          _buildStepCard(stepNumber: '1', title: 'اختر فكرتك', content: '• فيديوهات جلد (Montage)\n• فيديوهات تعليمية\n• فيديوهات تحديات\n• فيديوهات كوميدية', icon: Icons.lightbulb_outline),
-          _buildStepCard(stepNumber: '2', title: 'سجل لعبك', content: '• استخدم مسجل الشاشة المدمج في جوالك.\n• تأكد من أن جودة التسجيل عالية (720p أو 1080p).', icon: Icons.videocam),
-          _buildStepCard(stepNumber: '3', title: 'سوي المونتاج', content: 'أفضل برامج المونتاج للجوال:\n• CapCut: سهل ومجاني.\n• KineMaster: احترافي أكثر.\n• VN Video Editor: بسيط للمبتدئين.', icon: Icons.cut),
-          _buildStepCard(stepNumber: '4', title: 'انشر الفيديو', content: '• يوتيوب: للفيديوهات الطويلة.\n• تيك توك وإنستغرام ريلز: للفيديوهات القصيرة.\n• استخدم عنواناً جذاباً وصورة مصغرة قوية.', icon: Icons.upload_file),
+          _buildStepCard(stepNumber: '1', title: 'اختر فكرتك', content: '• فيديوهات جلد (Montage)\n• فيديوهات تعليمية\n• فيديوهات تحديات', icon: Icons.lightbulb_outline),
+          _buildStepCard(stepNumber: '2', title: 'سجل لعبك', content: '• استخدم مسجل الشاشة المدمج في جوالك.\n• تأكد من أن جودة التسجيل عالية.', icon: Icons.videocam),
+          _buildStepCard(stepNumber: '3', title: 'سوي المونتاج', content: 'أفضل برامج المونتاج للجوال:\n• CapCut: سهل ومجاني.\n• KineMaster: احترافي أكثر.', icon: Icons.cut),
+          _buildStepCard(stepNumber: '4', title: 'انشر الفيديو', content: '• يوتيوب: للفيديوهات الطويلة.\n• تيك توك: للفيديوهات القصيرة.', icon: Icons.upload_file),
         ],
       ),
     );
   }
 }
 
-// ===================================================================
-// PAGE 14: GAME SECRETS & TRICKS
-// ===================================================================
 class SecretsScreen extends StatelessWidget {
   const SecretsScreen({super.key});
   @override
   Widget build(BuildContext context) {
     final secrets = {
-      'سرعة تغيير السلاح': 'في إعدادات التحكم، قم بتفعيل خيار "Quick Weapon Switch". هذا يضيف زراً يسمح لك بالتبديل بين سلاحين بسرعة خيالية.',
-      'إلغاء إعادة التلقيم': 'إذا بدأت في إعادة تلقيم السلاح بالخطأ، اضغط على زر تغيير السلاح بسرعة. هذا سيلغي العملية ويسمح لك بالرد فوراً.',
-      'القفزة الصامتة': 'عندما تقفز من مكان مرتفع، وقبل أن تلمس الأرض بلحظة، اضغط على زر استخدام السلاح. هذا سيلغي صوت الهبوط بالكامل.',
+      'سرعة تغيير السلاح': 'في إعدادات التحكم، قم بتفعيل خيار "Quick Weapon Switch".',
+      'إلغاء إعادة التلقيم': 'إذا بدأت في إعادة تلقيم السلاح بالخطأ، اضغط على زر تغيير السلاح بسرعة.',
+      'القفزة الصامتة': 'عندما تقفز من مكان مرتفع، وقبل أن تلمس الأرض، اضغط على زر استخدام السلاح.',
     };
     return Scaffold(
       appBar: AppBar(title: const Text('🛠️ أسرار وخفايا اللعبة')),
@@ -548,11 +498,7 @@ class SecretsScreen extends StatelessWidget {
   }
 }
 
-// ===================================================================
-// HELPER WIDGETS (Used by multiple pages to avoid repeating code)
-// ===================================================================
-
-// Helper for Headshot Guide
+// HELPER WIDGETS
 class GuideSection extends StatelessWidget {
   final String title;
   final String content;
@@ -586,10 +532,9 @@ class GuideSection extends StatelessWidget {
   }
 }
 
-// Helper for Weapon/Character Details
 Widget _buildDetailCard(String title, String content, IconData icon) {
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 8.0),
+    padding: const EdgeInsets.all(16.0),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -607,7 +552,6 @@ Widget _buildDetailCard(String title, String content, IconData icon) {
   );
 }
 
-// Helper for Diamond Economy
 Widget _buildInfoCard({required String title, required String content, required IconData icon, required Color color}) {
   return Card(
     shape: RoundedRectangleBorder(
@@ -637,5 +581,28 @@ Widget _buildInfoCard({required String title, required String content, required 
   );
 }
 
-// Helper for Content Creator Guide
-Widget _buildStepCard
+Widget _buildStepCard({required String stepNumber, required String title, required String content, required IconData icon}) {
+  return Card(
+    margin: const EdgeInsets.only(bottom: 15),
+    child: Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              CircleAvatar(child: Text(stepNumber), backgroundColor: Colors.red),
+              const SizedBox(width: 10),
+              Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              const Spacer(),
+              Icon(icon, size: 30),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Text(content, style: TextStyle(color: Colors.grey[400], height: 1.5)),
+        ],
+      ),
+    ),
+  );
+}
+
