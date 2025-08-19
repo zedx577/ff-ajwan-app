@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: Colors.black,
-        fontFamily: 'Cairo',
+        
         primaryColor: Colors.red,
         colorScheme: const ColorScheme.dark(
           primary: Colors.red,
@@ -36,8 +36,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.grey[900],
           elevation: 0,
           iconTheme: const IconThemeData(color: Colors.white),
-          titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'Cairo'),
-        ),
+          titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold,
         cardTheme: CardTheme(
           color: Colors.grey[900],
           margin: const EdgeInsets.symmetric(vertical: 8.0),
@@ -83,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.shield, color: Colors.red, size: 100),
+          
             SizedBox(height: 20),
             Text(
               'FF Ajwan',
